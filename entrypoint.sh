@@ -76,7 +76,8 @@ APPSERVER_MANAGER="/service.sh"
 APPSERVER_MODE="${APPSERVER_MODE:-application}"
 APPSERVER_CONSOLEFILE="${APPSERVER_CONSOLEFILE:-/totvs/protheus/bin/appserver/console.log}"
 
-EXTRACT_RESOURCES="${EXTRACT_RESOURCES:-false}"
+EXTRACT_RESOURCES="${EXTRACT_RESOURCES:-true}"
+EXTRACT_RESOURCES="${EXTRACT_RESOURCES,,}"
 TOTVS_DIR="/totvs"
 PROTHEUS_FILE="${TOTVS_DIR}/protheus.tar.gz"
 PROTHEUS_DATA_FILE="${TOTVS_DIR}/protheus_data.tar.gz"
@@ -121,7 +122,7 @@ RESOURCES_DIR="${TOTVS_DIR}/resources"
 
 ## 🚀 EXTRAÇÃO DE RECURSOS
 
-if [[ "$EXTRACT_RESOURCES" == "true" ]]; then
+if [[ "$EXTRACT_RESOURCES" =~ ^(true|1|yes|y)$ ]]; then
 
   echo ""
   echo "------------------------------------------------------"
@@ -179,7 +180,7 @@ if [[ "$EXTRACT_RESOURCES" == "true" ]]; then
 
   echo "✅ Recursos extraídos com sucesso!"
 else
-  echo "⏭️ Extração de recursos desabilitada. (EXTRACT_RESOURCES=false)"
+  echo "⏭️ Extração de recursos desabilitada."
   echo
 fi
 
