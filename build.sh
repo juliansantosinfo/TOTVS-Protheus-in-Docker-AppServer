@@ -175,7 +175,7 @@ EOF
     USING_CUSTOM_BASE="${USING_CUSTOM_BASE:-false}"
     if [[ "${GITHUB_ACTIONS:-false}" == "true" || "${USING_CUSTOM_BASE}" == "true" ]] && [[ -n "${IMAGE_BASE:-}" ]]; then
         USING_CUSTOM_BASE=true
-        COMPRESS_RESOURCES="false" # Se utiliza imagem custom não comprime os recursos.
+        # COMPRESS_RESOURCES="false" # Se utiliza imagem custom não comprime os recursos.
         print_info "Imagem base customizada detectada: ${IMAGE_BASE}"
     fi
 
